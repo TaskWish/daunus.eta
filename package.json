@@ -1,5 +1,5 @@
 {
-  "name": "eta",
+  "name": "daunus.eta",
   "version": "3.4.0",
   "description": "Lightweight, fast, and powerful embedded JS template engine",
   "keywords": [
@@ -23,7 +23,6 @@
   "exports": {
     "types": "./dist/types/index.d.ts",
     "import": "./dist/eta.module.mjs",
-    "browser": "./dist/browser.umd.js",
     "require": "./dist/eta.umd.js",
     "default": "./dist/eta.umd.js"
   },
@@ -46,8 +45,7 @@
   },
   "scripts": {
     "build:node": "microbundle src/index.ts --target node --format esm && microbundle src/index.ts --target node --format umd",
-    "build:browser": "microbundle src/browser.ts --target web --format umd,modern --output dist/browser.js",
-    "build": "npm run build:node && npm run build:browser",
+    "build": "npm run build:node",
     "commit": "git-cz",
     "format": "prettier --write '{src,test}/**/**.ts'",
     "lint": "eslint src/*.ts test/*.spec.ts --ext .js,.ts",
@@ -59,12 +57,6 @@
     "test:prod": "npm run lint && npm run test -- --no-cache",
     "test:watch": "jest --coverage --watch"
   },
-  "size-limit": [
-    {
-      "path": "dist/browser.umd.js",
-      "limit": "3.5 KB"
-    }
-  ],
   "lint-staged": {
     "{src,test}/**/**.ts": [
       "eslint"
