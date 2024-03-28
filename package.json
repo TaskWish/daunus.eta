@@ -1,6 +1,6 @@
 {
   "name": "daunus.eta",
-  "version": "3.4.1",
+  "version": "3.4.3",
   "description": "Lightweight, fast, and powerful embedded JS template engine",
   "keywords": [
     "handlebars",

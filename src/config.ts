@@ -82,7 +82,7 @@ const defaultConfig: EtaConfig = {
   cache: false,
   cacheFilepaths: true,
   debug: false,
-  escapeFunction: (str: unknown) => JSON.stringify(str),
+  escapeFunction: (str: unknown) => typeof str === 'object' ? JSON.stringify(str) : `${str}`,
   // default filter function (not used unless enables) just stringifies the input
   filterFunction: (val) => String(val),
   functionHeader: "",
