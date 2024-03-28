@@ -1,5 +1,3 @@
-import { XMLEscape } from "./utils.ts";
-
 /* TYPES */
 
 type trimConfig = "nl" | "slurp" | false;
@@ -84,19 +82,19 @@ const defaultConfig: EtaConfig = {
   cache: false,
   cacheFilepaths: true,
   debug: false,
-  escapeFunction: XMLEscape,
+  escapeFunction: (str: unknown) => JSON.stringify(str),
   // default filter function (not used unless enables) just stringifies the input
   filterFunction: (val) => String(val),
   functionHeader: "",
   parse: {
-    exec: "",
-    interpolate: "=",
+    exec: "#",
+    interpolate: "",
     raw: "~",
   },
   plugins: [],
   rmWhitespace: false,
   tags: ["<%", "%>"],
-  useWith: false,
+  useWith: true,
   varName: "it",
   defaultExtension: ".eta",
 };
